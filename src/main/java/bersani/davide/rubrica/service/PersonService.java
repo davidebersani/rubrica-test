@@ -4,6 +4,7 @@ import bersani.davide.rubrica.model.Person;
 import bersani.davide.rubrica.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,5 +16,10 @@ public class PersonService {
 
     public List<Person> getAllPersons() {
         return personRepository.findAll();
+    }
+
+    @Transactional
+    public void deletePerson(Long id) {
+        personRepository.deleteById(id);
     }
 }
