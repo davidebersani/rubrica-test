@@ -36,4 +36,8 @@ public class PersonService {
 
         return p.get();
     }
+
+    public void updatePerson(Person person) {
+        personRepository.save(person);
+    }
 }

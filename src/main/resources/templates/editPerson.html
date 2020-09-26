@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Nuova persona</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h3>Modifica i dati della persona.</h3>
+    <form method="POST" th:action="@{/updatePerson}" th:object="${person}">
+        <table>
+            <tr>
+                <td><label path="name">Nome</label></td>
+                <td><input path="name" th:field="*{name}" /></td>
+            </tr>
+            <tr>
+                <td><label path="surname">Cognome</label></td>
+                <td><input path="surname" th:field="*{surname}"/></td>
+            </tr>
+            <tr>
+                <td><label path="Address">Indirizzo</label></td>
+                <td><input path="address" th:field="*{address}"/></td>
+            </tr>
+            <tr>
+                <td><label path="phoneNumber">Numero di telefono</label></td>
+                <td><input path="phoneNumber" th:field="*{phoneNumber}"/></td>
+            </tr>
+            <tr>
+                <td><label path="age">Età</label></td>
+                <td><input path="age" th:field="*{age}"/></td>
+            </tr>
+            <tr>
+                <td><input class="bluButton" type="submit" value="Salva"/></td>
+            </tr>
+            <input path="id" type="hidden" th:field="*{id}">
+
+        </table>
+    </form>
+    <a th:href="@{/}"><button class="bluButton">Annulla</button></a>
+
+</body>
+</html>

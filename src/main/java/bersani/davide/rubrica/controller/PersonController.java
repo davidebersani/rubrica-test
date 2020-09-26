@@ -61,4 +61,20 @@ public class PersonController {
         model.addAttribute("persons",allPersons);
         return "index";
     }
+
+    @GetMapping("/edit")
+    public String edit(@RequestParam(name="id", required=true) Long id, Model model) {
+        Person p = personService.getPersonById(id);
+        model.addAttribute("person",p);
+        return "editPerson";
+    }
+
+    @PostMapping("/updatePerson")
+    public String updatePerson(Model model, @ModelAttribute("person")Person person) {
+        personService.updatePerson(person);
+        model.addAttribute("message","Dati aggiornati correttamente.");
+        List<Person> allPersons = personService.getAllPersons();
+        model.addAttribute("persons",allPersons);
+        return "index";
+    }
 }
