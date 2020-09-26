@@ -27,7 +27,7 @@
             <td th:text="${person.phoneNumber}" />
             <td>
                 <a th:href="@{/edit(id=${person.id})}"><button class="bluButton">Modifica</button></a>
-                <a th:href="@{/delete(id=${person.id})}"><button class="bluButton">Elimina</button></a>
+                <a th:href="@{/confirmDelete(id=${person.id})}"><button class="bluButton">Elimina</button></a>
             </td>
         </tr>
     </table>

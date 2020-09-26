@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rubrica</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h3>Vuoi realmente eliminare questa persona dalla tua rubrica?</h3>
+    <table>
+        <tr>
+            <td>Nome</td>
+            <td th:text="${person.name}" />
+        </tr>
+        <tr>
+            <td>Cognome</td>
+            <td th:text="${person.surname}" />
+        </tr>
+        <tr>
+            <td>Indirizzo</td>
+            <td th:text="${person.address}" />
+        </tr>
+        <tr>
+            <td>Numero di telefono</td>
+            <td th:text="${person.phoneNumber}" />
+        </tr>
+        <tr>
+            <td>Età</td>
+            <td th:text="${person.age}" />
+        </tr>
+    </table>
+    <a th:href="@{/delete(id=${person.id})}"><button class="bluButton">Si</button></a>
+    <a th:href="@{/}"><button class="bluButton">No</button></a>
+
+</body>
+</html>

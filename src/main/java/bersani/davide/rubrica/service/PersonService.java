@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PersonService {
@@ -26,5 +27,13 @@ public class PersonService {
     @Transactional
     public Person addPerson(Person person) {
         return personRepository.save(person);
+    }
+
+    public Person getPersonById(Long id) {
+        Optional<Person> p = personRepository.findById(id);
+        if(p.isEmpty())
+            throw new IllegalArgumentException("Person not found");
+
+        return p.get();
     }
 }

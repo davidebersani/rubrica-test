@@ -25,8 +25,15 @@ public class PersonController {
         return "index";
     }
 
+    @GetMapping("/confirmDelete")
+    public String confirmDelete(@RequestParam(name="id", required=true) Long id, Model model) {
+        Person p = personService.getPersonById(id);
+        model.addAttribute("person",p);
+        return "confirmDelete";
+    }
+
     @GetMapping("/delete")
-    public String home(@RequestParam(name="id", required=true) Long id, Model model) {
+    public String delete(@RequestParam(name="id", required=true) Long id, Model model) {
         personService.deletePerson(id);
         model.addAttribute("message","Persona eliminata.");
         List<Person> allPersons = personService.getAllPersons();
