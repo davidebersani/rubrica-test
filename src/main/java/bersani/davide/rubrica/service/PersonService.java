@@ -22,4 +22,9 @@ public class PersonService {
     public void deletePerson(Long id) {
         personRepository.deleteById(id);
     }
+
+    @Transactional
+    public Person addPerson(Person person) {
+        return personRepository.save(person);
+    }
 }
